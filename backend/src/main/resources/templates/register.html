@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>register</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <br/>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <form action="#" th:action="@{/register}" th:object="${user}" method="post">
+                    <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input type="email" class="form-control" th:field="*{email}" data-validation="email" id="email"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" class="form-control" th:field="*{firstName}" data-validation="required" id="firstName"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" class="form-control" th:field="*{lastName}" data-validation="required" id="lastName"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" th:field="*{password}" data-validation="alphanumeric" id="password"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="retypePassword">Retype Password:</label>
+                        <input type="password" class="form-control" th:field="*{retypePassword}" id="retypePassword"/>
+                    </div>
+                    <button type="submit" class="btn btn-default">Sign Up</button>
+                    <a th:href="@{/login}">Already a member? Sign in</a>
+                </form>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+    
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+	<script>
+	  $.validate({
+	    lang: 'en'
+	  });
+	</script>
+</body>
+</html>
